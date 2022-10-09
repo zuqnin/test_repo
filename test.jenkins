@@ -7,18 +7,18 @@ pipeline {
         label 'master'
         }
     options {
-        buildDiscarder(logRotator(numToKeepStr: '20', artifactNumToKeepStr: '20'))
+        buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
         timestamps()
     }
     stages {
         stage("First step") {
             steps {
-                sh 'ssh root@192.168.1.110 \'hostname\''
+                sh 'ssh root@localhost \'hostname\''
             }
         }
         stage("Second step") {
             steps {
-                sh 'ssh root@192.168.1.110 \'uptime\''
+                sh 'ssh root@localhost \'uptime\''
             }
         }
     }
