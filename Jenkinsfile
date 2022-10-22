@@ -13,7 +13,9 @@ pipeline {
     stages {
         stage("First step") {
             steps {
-                sh 'ssh -i /root/.ssh/id_rsa.pub root@192.168.1.103 /bin/bash'
+                echo "==================== start building image ===================="
+                dir ('docker/toolbox')
+                sh 'docker-compose build .'
             }
         }
         stage("Second step") {
