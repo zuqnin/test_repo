@@ -13,12 +13,12 @@ pipeline {
     stages {
         stage("First step") {
             steps {
-                sh 'ping 192.168.1.103'
+                sh 'ping -c 4 192.168.1.103'
             }
         }
         stage("Second step") {
             steps {
-                sh 'ping 192.168.1.103'
+                sh 'ping -c 4 192.168.1.103'
             }
         }
     }
