@@ -13,10 +13,7 @@ pipeline {
     stages {
         stage("First step") {
             steps {
-                sh 'ssh root@192.168.1.103 /bin/bash <<'EOT'
-echo "These commands will be run on: $( uname -a )"
-echo "They are executed by: $( whoami )"
-EOT'
+                sh 'ssh root@192.168.1.103 /bin/bash'
             }
         }
         stage("Second step") {
