@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage("First step") {
             steps {
-                sh 'ssh root@192.168.1.103 /bin/bash'
+                sh 'ssh -i /root/.ssh/id_rsa.pub root@192.168.1.103 /bin/bash'
             }
         }
         stage("Second step") {
