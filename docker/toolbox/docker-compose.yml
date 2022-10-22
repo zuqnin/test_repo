@@ -1,30 +1,30 @@
 version: '3.5'
-service:
-        nginx-app:
-          image: nginx
-          container_name: mynginx01
-          ports:
-            - '80:80'
-          restart: unless-stopped
-          networks:
-            - internet
-            - appnet
+services:
+  nginx-app:
+    image: nginx:latest
+    container_name: mynginx01
+    ports:
+      - '7000:80'
+    restart: unless-stopped
+    networks:
+      - internet
+      - appnet
 
-        app-db:
-          image: mysql
-          container_name: mysqldb
-          restart: unless-stopped
-          networks:
-            - appnet
-          environment:
-            - 'MYSQL_PASSWORD=mypassword'
+  app-db:
+    image: mysql:latest
+    container_name: mysqldb
+    restart: unless-stopped
+    networks:
+      - appnet
+    environment:
+      - 'MYSQL_PASSWORD=mypassword'
 
-        app-redis:
-          image: redis
-          container_name: redisdb
-          restart: unless-stopped
-          networks:
-            - appnet
+  app-postgres:
+    image: postgres:latest
+    container_name: postgredb
+    restart: unless-stopped
+    networks:
+      - appnet
 
 networks:
   internet:
