@@ -12,7 +12,7 @@ service:
 
         app-db:
           image: mysql
-          container: mysqldb
+          container_name: mysqldb
           restart: unless-stopped
           networks:
             - appnet
